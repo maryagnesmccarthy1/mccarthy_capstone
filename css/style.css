@@ -20,10 +20,12 @@
 
 /*ChatGPT help in making responsive by adding position: relative*/
 
-
-.hero-a{
-  min-height:520px;
-  position: relative;
+/*ChatGPT help with professor instruction to keep changed 520px to 80vh*/
+/* Hero is at least 80% of the viewport height.
+   Relative positioning keeps the overlay inside the hero. */
+.hero-a {
+    min-height: 80vh;
+    position: relative;
   /*Code from lesson*/
   /* YOUR IMAGE: Replace this URL with your own hero background image.
      Use a large photo (at least 1400px wide). background-size:cover
@@ -96,18 +98,16 @@ background-image: url("../images/babygoats.jpg");
   margin-bottom:18px;
 }
 
-.hero-a p{
-  
-  font-size:1.1rem;
-  color: rgb(243, 239, 239);
-  
-  max-width:480px;
-  margin:0 auto 32px;
-  line-height:1.65;
+
+/* Professor feedback: Added fluid typography for hero paragraph */
+/* ChatGPT assistance: clamp() adjusts text size for different screens */
+.hero-a p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgb(243, 239, 239);
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
 }
-
-/*removed code for hero buttons since button is placed below hero*/
-
 
 .btn-hero-outline:hover{
   border-color:#fff;
@@ -213,9 +213,9 @@ background-image: url("../images/babygoats.jpg");
 }
 
 
-/*ChatGPT assistance to add space and button below the hero image*/
-/* Email List Button */
 
+/* ChatGPT assistance: Removes underline from CTA links */
+/* Email List Button */
 .cta-button {
     background-color: #38302A;
     color: #f9f6f9;
@@ -223,11 +223,28 @@ background-image: url("../images/babygoats.jpg");
     border: none;
     border-radius: 6px;
     cursor: pointer;
+
+
+    /* ChatGPT assistance: Removes underline from CTA links */
+    display: inline-block;
+    text-decoration: none;
 }
 
 .cta-button:hover {
     background-color: #8f7f73;
 }
+
+
+/* ChatGPT assistance after noticing CTA button at bottom appeared black instead of matching hero button */
+.cta-section .cta-button {
+    background-color: #38302A;
+}
+
+.cta-section .cta-button:hover {
+    background-color: #8f7f73;
+}
+
+
 
 /* Space Around Goat Cards */
 
@@ -242,12 +259,16 @@ background-image: url("../images/babygoats.jpg");
 
 /* ChatGPT help with frame colors to include taupe, malta and  Malta text for accessibility header */
 
+/* ChatGPT help with making header sticky so it stays in place scrolling down page*/
 header {
     background-color: #BEB3A0;
     border-top: 6px solid #929491;
     border-bottom: 3px solid #38302A;
-}
 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 /* Navigation Text */
 .nav a {
     color: #38302A;
@@ -408,4 +429,170 @@ footer {
     .menu-toggle:checked ~ .links {
         display: flex;
     }
+}
+
+/*About Me section code from HTML Library*/
+.intro-b-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.intro-b-text{
+  
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  
+  padding:48px;
+}
+
+.intro-b-eyebrow{
+  
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  
+  text-transform:uppercase;
+  color:#6366f1;
+  margin-bottom:14px;
+}
+
+.intro-b-name{
+  
+  font-family:'DM Serif Display',serif;
+  
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  color:#fff;
+  
+  line-height:1.1;
+  margin-bottom:16px;
+}
+
+.intro-b-bio{
+  
+  font-size:.92rem;
+  color:rgba(255,255,255,.5);
+  
+  line-height:1.75;
+  margin-bottom:24px;
+}
+
+.intro-b-btn{
+  
+  display:inline-block;
+  padding:11px 26px;
+  border-radius:8px;
+  
+  /*hanged button color from purple to manatee */
+  background:#868896;
+  color:#fff;
+  font-weight:600;
+  font-size:.85rem;
+  
+  text-decoration:none;
+  transition:all .2s;
+  width:fit-content;
+}
+
+.intro-b-btn:hover{
+  background:#4f46e5;
+  transform:translateY(-2px);
+}
+
+.intro-b{
+  
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  
+  min-height:420px;
+  border-radius:16px;
+  overflow:hidden;
+  /*changed background from black to malta*/
+  background:#BEB3A0;
+}
+
+/*CSS code for cards from Playground*/
+.team-card{
+  
+  background:#111118;
+  border-radius:16px;
+  overflow:hidden;
+  
+  border:1px solid rgba(255,255,255,.05);
+  
+  transition:transform .3s;
+}
+
+.team-card:hover{
+  transform:translateY(-3px);
+}
+/*increased height from 260px to 350px to fit team images visually appealing*/
+.team-card-img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+
+.team-card-body{
+  padding:20px;
+}
+
+.team-card-name{
+  font-size:1rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+.team-card-role{
+  font-size:.78rem;
+  color:#6366f1;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.team-card-bio{
+  font-size:.82rem;
+  color:rgba(255,255,255,.4);
+  line-height:1.6;
+}
+
+.team-card-social{
+  
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+
+.team-card-social a{
+  
+  width:28px;
+  height:28px;
+  border-radius:6px;
+  
+  background:rgba(255,255,255,.06);
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+  font-size:.65rem;
+  font-weight:700;
+  color:rgba(255,255,255,.4);
+  
+  text-decoration:none;
+  transition:all .2s;
+}
+
+.team-card-social a:hover{
+  background:rgba(99,102,241,.15);
+  color:#a5b4fc;
+}
+
+.team-grid{
+  
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
